@@ -65,6 +65,7 @@ class SpreadsheetData {
           // name: rows[rowNum].name,
           // TODO: Change to name
           name: rows[rowNum].email,
+          chosen: null,
         });
       }
 
@@ -77,6 +78,7 @@ class SpreadsheetData {
           // name: rows[rowNum].name,
           // TODO: Change to name
           name: rows[rowNum].email,
+          chosen: null,
         });
       }
     }
@@ -92,7 +94,7 @@ class SpreadsheetData {
   getColumnName(colId) {
     return this.columnNames[colId];
   }
-  getNameOptions(howMany = 5, includedName = '') {
+  getNameOptions(howMany = 6, includedName = '') {
     const names = Tools.shuffle(this.names);
     let result = names.slice(0, howMany - 1);
 
