@@ -2,15 +2,24 @@
   <div class="question" :class="wrapperClass">
     <b-card>
       <div class="question-title">
-        {{ displayTitle
-        }}<b-badge
-          v-if="answered"
-          variant="info"
+        {{ displayTitle }}
+        <b-badge v-if="answered" variant="info" class="question-title-badge">{{
+          data.name
+        }}</b-badge>
+        <b-badge
+          v-if="answered && chosen === data.name"
+          variant="success"
           class="question-title-badge"
-          >{{ data.name }}</b-badge
+          >Correct!</b-badge
+        >
+        <b-badge
+          v-if="answered && chosen !== data.name"
+          variant="danger"
+          class="question-title-badge"
+          >Not quite...</b-badge
         >
       </div>
-      <b-card-text>{{ data.text }} </b-card-text>
+      <b-card-text class="question-text">{{ data.text }} </b-card-text>
       <div v-if="!answered" class="question-options">
         <b-button
           variant="outline-primary"
@@ -100,10 +109,17 @@ export default {
   }
 
   &-title {
-    font-size: 1.5em;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid darkgray;
     &-badge {
       float: right;
+      margin-right: 1em;
     }
+  }
+
+  &-text {
+    font-size: 1.2em;
   }
 
   &-button {
@@ -123,6 +139,10 @@ export default {
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin: 1em 0 0;
+
+    button {
+      margin: 0.5em;
+    }
   }
   &-next {
     margin: 1em 0 0;

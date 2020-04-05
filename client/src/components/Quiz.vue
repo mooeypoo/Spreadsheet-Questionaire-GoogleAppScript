@@ -2,6 +2,10 @@
   <div>
     <h1>Quiz yourself!</h1>
     <div class="wrapper">
+      <div class="score">
+        <h1>Score</h1>
+        <h2>{{ score }}/{{ total }}</h2>
+      </div>
       <div class="question">
         <Question
           v-if="current"
@@ -10,10 +14,6 @@
           @next="nextQuestion"
         />
         <div v-if="showEnd">That's it!</div>
-      </div>
-      <div class="score">
-        <h1>Score</h1>
-        <h2>{{ score }}/{{ total }}</h2>
       </div>
     </div>
     <h2 v-if="showAnswerBlock" class="answers-title">Answered</h2>
@@ -92,10 +92,6 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap-reverse;
   width: 100%;
   margin-bottom: 1em;
 }
@@ -127,6 +123,7 @@ export default {
 }
 
 .score {
+  float: right;
   background-color: #aadaef;
   border: 2px solid #2196f3;
   padding: 0.5em;

@@ -1,6 +1,8 @@
 'use strict';
 import Tools from './Tools';
 
+const NUMBER_OF_OPTIONS = 4;
+
 class SpreadsheetData {
   constructor() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
@@ -37,9 +39,7 @@ class SpreadsheetData {
 
     // Restructure the data
     for (let rowNum = 0; rowNum < rowData.length; rowNum++) {
-      // const name = rowData[rowNum][this.getColumnId('name')];
-      // TODO: Change this to 'name' again when we have those available
-      const name = rowData[rowNum][this.getColumnId('email')];
+      const name = rowData[rowNum][this.getColumnId('name')];
       this.names.push(name);
 
       let cols = {};
@@ -61,10 +61,8 @@ class SpreadsheetData {
         this.questions.push({
           category: 'fun_title',
           text: rows[rowNum].fun_title,
-          options: this.getNameOptions(5, rows[rowNum].name),
-          // name: rows[rowNum].name,
-          // TODO: Change to name
-          name: rows[rowNum].email,
+          options: this.getNameOptions(NUMBER_OF_OPTIONS, rows[rowNum].name),
+          name: rows[rowNum].name,
           chosen: null,
         });
       }
@@ -74,10 +72,8 @@ class SpreadsheetData {
         this.questions.push({
           category: 'fact',
           text: rows[rowNum].fact,
-          options: this.getNameOptions(5, rows[rowNum].name),
-          // name: rows[rowNum].name,
-          // TODO: Change to name
-          name: rows[rowNum].email,
+          options: this.getNameOptions(NUMBER_OF_OPTIONS, rows[rowNum].name),
+          name: rows[rowNum].name,
           chosen: null,
         });
       }
@@ -85,7 +81,7 @@ class SpreadsheetData {
   }
 
   getQuestions() {
-    return this.questions;
+    return Tools.shuffle(this.questions);
   }
 
   getColumnId(colName) {
@@ -105,7 +101,7 @@ class SpreadsheetData {
       // Add the next name on the list
       result.push(names[howMany]);
     }
-    return result;
+    return Tools.shuffle(result);
   }
 }
 

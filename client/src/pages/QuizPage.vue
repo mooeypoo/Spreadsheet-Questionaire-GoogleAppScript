@@ -1,5 +1,11 @@
 <template>
   <div>
+    <b-spinner
+      v-if="!ready"
+      variant="primary"
+      type="grow"
+      label="Spinning"
+    ></b-spinner>
     <Quiz v-bind:questions="questions" />
   </div>
 </template>
@@ -14,12 +20,16 @@ export default {
     return {
       bw: new Backend(),
       questions: [],
+      error: false,
     };
   },
   mounted() {
     this.getQuestions();
   },
   methods: {
+    ready() {
+      return !this.questions && !this.error;
+    },
     getQuestions() {
       this.bw.getQuestions().then(
         function (res) {
@@ -28,6 +38,7 @@ export default {
         }.bind(this),
         function (res) {
           console.log('MainPage error', err);
+          this.error = true;
         }.bind(this)
       );
     },
