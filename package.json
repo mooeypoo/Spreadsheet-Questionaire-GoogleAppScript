@@ -14,8 +14,9 @@
     "deploy": "npm run prod &&  npm run gas && cd deploy/gas && rm app.bundle.js && clasp push && clasp open --webapp"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.0",
     "@google/clasp": "^2.3.0",
-    "@babel/polyfill": "^7.4.0"
+    "bootstrap-vue": "^2.10.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -23,7 +24,7 @@
     "@babel/register": "^7.4.0",
     "autoprefixer": "^9.5.0",
     "babel-loader": "^8.0.5",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "chai": "^4.2.0",
     "clean-webpack-plugin": "^2.0.1",
     "copy-webpack-plugin": "^5.0.1",
@@ -38,7 +39,7 @@
     "sass-loader": "^7.1.0",
     "sinon": "^7.3.1",
     "style-loader": "^0.23.1",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.6.10",

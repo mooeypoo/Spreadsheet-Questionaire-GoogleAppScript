@@ -1,1 +1,47 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap';
+@import '~bootstrap-vue';
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0 1em;
+  border-bottom: 5px solid lightpink;
+  &-title {
+    font-family: 'Comic Neue', cursive;
+    &-emphasis {
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+  }
+  &-logo {
+    margin-right: 2em;
+    img {
+      height: 90px;
+    }
+  }
+}
+
+.topmenu {
+  width: 400px;
+  margin: 0 auto;
+
+  ul {
+    display: flex;
+    li {
+      list-style-type: none;
+    }
+  }
+}

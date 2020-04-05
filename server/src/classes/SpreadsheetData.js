@@ -33,8 +33,8 @@ class SpreadsheetData {
     let rows = [];
 
     // Shuffle rows
-    // Tools.shuffle(rowData);
-    this.rowData = rowData;
+    rowData = Tools.shuffle(rowData);
+
     // Restructure the data
     for (let rowNum = 0; rowNum < rowData.length; rowNum++) {
       // const name = rowData[rowNum][this.getColumnId('name')];

@@ -1,19 +1,18 @@
 'use strict';
+import Googlescript from './Googlescript';
+import Mockscript from './Mockscript';
 
 class Backend {
-  constructor() {}
+  constructor() {
+    if (window.google !== undefined) {
+      this.script = new Googlescript();
+    } else {
+      this.script = new Mockscript();
+    }
+  }
 
   getQuestions() {
-    return new Promise((resolve, reject) => {
-      google.script.run
-        .withSuccessHandler(function (res) {
-          resolve(res);
-        })
-        .withFailureHandler(function (res) {
-          reject(res);
-        })
-        .getQuestions();
-    });
+    return this.script.getQuestions();
   }
 }
 
