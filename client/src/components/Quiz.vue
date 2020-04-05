@@ -11,7 +11,7 @@
           v-if="current"
           v-bind:data="current"
           @answered="onAnswered"
-          @next="nextQuestion"
+          @next="onNextQuestion"
         />
         <div v-if="showEnd">That's it!</div>
       </div>
@@ -39,54 +39,80 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex';
 import Question from './Question';
 import AnswerDisplay from './AnswerDisplay';
 export default {
   name: 'Quiz',
-  props: ['questions'],
   components: { Question, AnswerDisplay },
-  data() {
-    return {
-      score: 0,
-      total: 0,
-      completed: {
-        correct: [],
-        incorrect: [],
-      },
-    };
-  },
   computed: {
-    current: function () {
-      return this.questions ? this.questions[0] : {};
-    },
-    showAnswerBlock: function () {
-      return this.completed.correct.length || this.completed.incorrect.length;
-    },
-    showEnd: function () {
-      return (
-        !this.questions.length &&
-        (this.completed.correct.length || this.completed.incorrect.length)
-      );
-    },
+    ...mapGetters('quiz', {
+      current: 'currentQuestion',
+      showAnswerBlock: 'areAnyCompleted',
+      showEnd: 'isEnded',
+    }),
+    ...mapState({
+      questions: (state) => state.quiz.questions,
+      score: (state) => state.quiz.score,
+      total: (state) => state.quiz.total,
+      completed: (state) => state.quiz.completed,
+    }),
+  },
+  created() {
+    // Ask for the questions
+    this.$store.dispatch('quiz/getQuestions');
   },
   methods: {
-    nextQuestion: function (isCorrect) {
-      if (isCorrect) {
-        this.completed.correct.push(this.questions[0]);
-        console.log('correct', this.completed.correct);
-      } else {
-        this.completed.incorrect.push(this.questions[0]);
-        console.log('incorrect', this.completed.incorrect);
-      }
-      this.questions.shift();
+    // ...mapActions('quiz', ['nextQuestion']),
+    onNextQuestion(isCorrect) {
+      this.$store.dispatch('quiz/goToNextQuestion', isCorrect);
     },
     onAnswered(data) {
-      this.total++;
-      if (data.isCorrect) {
-        this.score++;
-      }
+      this.$store.dispatch('quiz/submitAnswer', data.isCorrect);
     },
   },
+  // data() {
+  //   return {
+  //     score: 0,
+  //     total: 0,
+  //     completed: {
+  //       correct: [],
+  //       incorrect: [],
+  //     },
+  //   };
+  // },
+  // computed: {
+  //   current: function () {
+  //     return this.questions ? this.questions[0] : {};
+  //   },
+  //   showAnswerBlock: function () {
+  //     return this.completed.correct.length || this.completed.incorrect.length;
+  //   },
+  //   showEnd: function () {
+  //     return (
+  //       !this.questions.length &&
+  //       (this.completed.correct.length || this.completed.incorrect.length)
+  //     );
+  //   },
+  // },
+  // methods: {
+  //   nextQuestion: function (isCorrect) {
+  //     if (isCorrect) {
+  //       this.completed.correct.push(this.questions[0]);
+  //       console.log('correct', this.completed.correct);
+  //     } else {
+  //       this.completed.incorrect.push(this.questions[0]);
+  //       console.log('incorrect', this.completed.incorrect);
+  //     }
+  //     this.questions.shift();
+  //   },
+  //   onAnswered(data) {
+  //     this.total++;
+  //     if (data.isCorrect) {
+  //       this.score++;
+  //     }
+  //   },
+  // },
 };
 </script>
 

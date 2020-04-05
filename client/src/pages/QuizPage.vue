@@ -6,42 +6,21 @@
       type="grow"
       label="Spinning"
     ></b-spinner>
-    <Quiz v-bind:questions="questions" />
+    <Quiz />
   </div>
 </template>
 
 <script>
 import Quiz from '../components/Quiz';
-import Backend from '../services/Backend';
+import { mapState } from 'vuex';
 export default {
   name: 'QuizPage',
   components: { Quiz },
-  data() {
-    return {
-      bw: new Backend(),
-      questions: [],
-      error: false,
-    };
-  },
-  mounted() {
-    this.getQuestions();
-  },
-  methods: {
-    ready() {
-      return !this.questions && !this.error;
-    },
-    getQuestions() {
-      this.bw.getQuestions().then(
-        function (res) {
-          console.log('MainPage getQuestions', res);
-          this.questions = res;
-        }.bind(this),
-        function (res) {
-          console.log('MainPage error', err);
-          this.error = true;
-        }.bind(this)
-      );
-    },
+  computed: {
+    ...mapState({
+      ready: (state) => state.quiz.ready,
+      error: (state) => state.quiz.error,
+    }),
   },
 };
 </script>
