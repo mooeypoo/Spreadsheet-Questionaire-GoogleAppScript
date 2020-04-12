@@ -6,7 +6,6 @@ class QuizBuilder {
     this.numOptions = config.num_options || 6;
     this.structure = config.structure || {};
     this.columnNames = Object.keys(this.structure);
-
     this.questions = [];
     this.names = this.collectNames(rows);
     this.buildQuestions(rows);
@@ -22,19 +21,20 @@ class QuizBuilder {
       // TODO: Make solution configurable, so it can be something other than name
       const nameColId = this.getColumnIdByName('name');
       const sol = row[nameColId];
-
       colQuestions.forEach(colName => {
-        questions.push({
-          category: colName,
-          question: this.structure[colName].question_title,
-          text: row[this.getColumnIdByName(colName)],
-          solution: sol,
-          options: this.getNameOptions(sol),
-          status: {
-            chosen: null,
-            correct: false
-          }
-        });
+        if (row[this.getColumnIdByName(colName)]) {
+          questions.push({
+            category: colName,
+            question: this.structure[colName].question_title,
+            text: row[this.getColumnIdByName(colName)],
+            solution: sol,
+            options: this.getNameOptions(sol),
+            status: {
+              chosen: null,
+              correct: false
+            }
+          });
+        }
       });
     });
 

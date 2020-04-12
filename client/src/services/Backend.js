@@ -7,24 +7,24 @@ import QuizBuilder from './QuizBuilder';
 const config = {
   num_options: 4,
   structure: {
-    timestamp: {},
+    /*timestamp: {},*/
     email: {},
     official_title: {},
     fun_title: {
       question: true,
-      question_title: 'Whose fun title is this?',
+      question_title: 'Whose fun title is this?'
     },
     nickname: {},
     dog_cat: {},
     fact: {
       question: true,
-      question_title: 'Whose surprising fact is this?',
+      question_title: 'Whose surprising fact is this?'
     },
     joke: {},
     animal: {},
     videocalls: {},
-    name: {},
-  },
+    name: {}
+  }
 };
 
 class Backend {
@@ -39,7 +39,6 @@ class Backend {
   }
 
   getQuestions() {
-    console.log('Backend getQuestions');
     if (this.questions.length) {
       // If qustions are already built, return it
       return new Promise(

@@ -1,7 +1,7 @@
 'use strict';
 const fakeRows = [
   [
-    '123234',
+    // '123234',
     'foo@bar.com',
     'Official title 1',
     'Fun title 1',
@@ -11,10 +11,10 @@ const fakeRows = [
     'joke1',
     'animal1',
     'videocall1',
-    'Person 1',
+    'Person 1'
   ],
   [
-    '113234',
+    // '113234',
     'foo2@bar.com',
     'Official title 2',
     'Fun title 2',
@@ -24,10 +24,10 @@ const fakeRows = [
     'joke2',
     'animal2',
     'videocall2',
-    'Person 2',
+    'Person 2'
   ],
   [
-    '113234',
+    // '113234',
     'foo3@bar.com',
     'Official title 3',
     'Fun title 3',
@@ -37,10 +37,10 @@ const fakeRows = [
     'joke3',
     'animal3',
     'videocall3',
-    'Person 3',
+    'Person 3'
   ],
   [
-    '113234',
+    // '113234',
     'foo4@bar.com',
     'Official title 4',
     'Fun title 4',
@@ -50,8 +50,8 @@ const fakeRows = [
     'joke4',
     'animal4',
     'videocall4',
-    'Person 4',
-  ],
+    'Person 4'
+  ]
 ];
 class Mockscript {
   getRows() {
