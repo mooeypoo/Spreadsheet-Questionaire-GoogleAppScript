@@ -33,3 +33,10 @@ While this code is meant to run on a Google App Script that's connected to a spr
 - Developer: Moriel Schottlender (mooeypoo).
 - Product: Cara Palanca and Moriel Schottlender
 - Design: Jess Klein
+
+### Credits
+
+This is based on the incredible tutorial on using ES6-based code in Google App Scripts by [https://github.com/gsmart-in](gsmart-in)
+
+- Blog series: [https://blog.gsmart.in/es6-and-npm-modules-in-google-apps-script/](Part 1), [https://blog.gsmart.in/single-page-apps-vue-bootstrap-on-google-apps-script/](Part 2)
+- [https://github.com/gsmart-in/AppsCurryApp](Example repository)
