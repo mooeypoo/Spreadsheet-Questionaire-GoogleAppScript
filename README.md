@@ -36,7 +36,7 @@ While this code is meant to run on a Google App Script that's connected to a spr
 
 ### Credits
 
-This is based on the incredible tutorial on using ES6-based code in Google App Scripts by [https://github.com/gsmart-in](gsmart-in)
+This is based on the incredible tutorial on using ES6-based code in Google App Scripts by [gsmart-in](https://github.com/gsmart-in)
 
-- Blog series: [https://blog.gsmart.in/es6-and-npm-modules-in-google-apps-script/](Part 1), [https://blog.gsmart.in/single-page-apps-vue-bootstrap-on-google-apps-script/](Part 2)
-- [https://github.com/gsmart-in/AppsCurryApp](Example repository)
+- Blog series: [Part 1](https://blog.gsmart.in/es6-and-npm-modules-in-google-apps-script/), [Part 2](https://blog.gsmart.in/single-page-apps-vue-bootstrap-on-google-apps-script/)
+- [Example repository](https://github.com/gsmart-in/AppsCurryApp)
