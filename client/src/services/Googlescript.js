@@ -1,16 +1,16 @@
 'use strict';
 
 class Googlescript {
-  getQuestions() {
+  getRows() {
     return new Promise((resolve, reject) => {
       google.script.run
-        .withSuccessHandler(function (res) {
+        .withSuccessHandler(function(res) {
           resolve(res);
         })
-        .withFailureHandler(function (res) {
+        .withFailureHandler(function(res) {
           reject(res);
         })
-        .getQuestions();
+        .getRows();
     });
   }
 }

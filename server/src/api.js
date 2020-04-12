@@ -4,6 +4,6 @@ function doGet() {
     .setSandboxMode(HtmlService.SandboxMode.IFRAME);
 }
 
-function getQuestions() {
-  return AppLib.spreadsheet.getQuestions();
+function getRows() {
+  return AppLib.spreadsheet.getRows();
 }

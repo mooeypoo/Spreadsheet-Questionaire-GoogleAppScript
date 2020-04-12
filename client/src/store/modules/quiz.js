@@ -6,32 +6,31 @@ const state = {
   error: false,
   ready: false,
   questions: [],
-  completed: {
-    correct: [],
-    incorrect: [],
-  },
+  completed: [],
   score: 0,
-  total: 0,
+  total: 0
 };
 
 // Actions
 const actions = {
-  submitAnswer({ state, commit }, isCorrect) {
-    commit('setAnswer', isCorrect);
+  submitCurrentAnswer({ state, commit }, answer) {
+    let isCorrect = answer === state.questions[0].solution;
+    commit('increaseScore', isCorrect);
+    commit('setCurrentAnswer', { answer, isCorrect });
   },
-  goToNextQuestion({ state, commit }, isCorrect) {
-    commit('nextQuestion', isCorrect);
+  goToNextQuestion({ state, commit }) {
+    commit('nextQuestion');
   },
   getQuestions({ state, commit }) {
     bw.getQuestions().then(
-      function (res) {
+      function(res) {
         commit('setQuestions', res);
       },
-      function (res) {
+      function(res) {
         commit('setError', true);
       }
     );
-  },
+  }
 };
 
 // Getters
@@ -39,31 +38,52 @@ const getters = {
   currentQuestion: (state, getters, rootState) => {
     return state.questions[0];
   },
+  isCurrentQuestionAnswered: (state, getters, rootState) => {
+    return !!state.questions[0].status.chosen;
+  },
+  currentQuestionTitle: (state, getters, rootState) => {
+    switch (state.questions[0].category) {
+      case 'fun_title':
+        return 'Whose fun title is:';
+      case 'fact':
+        return 'Whose surprising fact is:';
+    }
+  },
+  allCompleted: (state, getters, rootState) => {
+    return state.completed;
+  },
+  getCompletedCorrect: (state, getters, rootState) => {
+    return state.completed.filter(q => {
+      return q.status.correct;
+    });
+  },
+  getCompletedIncorrect: (state, getters, rootState) => {
+    return state.completed.filter(q => {
+      return !q.status.correct;
+    });
+  },
   areAnyCompleted: (state, getters, rootState) => {
     return state.completed.correct.length || state.completed.incorrect.length;
   },
   isEnded: (state, getters, rootState) => {
-    return (
-      !state.questions.length &&
-      (state.completed.correct.length || state.completed.incorrect.length)
-    );
-  },
+    return !state.questions.length && state.completed.length;
+  }
 };
 
 // Mutations
 const mutations = {
-  setAnswer(state, isCorrect) {
+  increaseScore(state, isCorrect) {
     state.total++;
     if (isCorrect) {
       state.score++;
     }
   },
-  nextQuestion(state, isCorrect) {
-    if (isCorrect) {
-      state.completed.correct.push(state.questions[0]);
-    } else {
-      state.completed.incorrect.push(state.questions[0]);
-    }
+  setCurrentAnswer(state, data) {
+    state.questions[0].status.chosen = data.answer;
+    state.questions[0].status.correct = !!data.isCorrect;
+  },
+  nextQuestion(state) {
+    state.completed.push(state.questions[0]);
     state.questions.shift();
   },
   setQuestions(state, questions) {
@@ -72,7 +92,7 @@ const mutations = {
   },
   setError(state, isError) {
     state.error = !!isError;
-  },
+  }
 };
 
 export default {
@@ -80,5 +100,5 @@ export default {
   state,
   getters,
   actions,
-  mutations,
+  mutations
 };
