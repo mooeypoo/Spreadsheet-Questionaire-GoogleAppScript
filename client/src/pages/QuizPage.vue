@@ -37,10 +37,17 @@ export default {
   background-color: $dark-box-bg;
   color: $dark-box-font;
   padding: 0 $page-padding 2em 0;
+  @media only screen and (max-width: 500px) {
+    font-size: 1.7em;
+    padding: 0 0 0.5em 0;
+  }
 
   h1 {
     font-weight: bold;
     text-align: center;
+    @media only screen and (max-width: 500px) {
+      padding: 0;
+    }
   }
 }
 .page-quiz {

@@ -55,6 +55,9 @@ export default {
   &-wrapper {
     padding: 2em 3em;
     background-color: $light-box-bg;
+    @media only screen and (max-width: 500px) {
+      padding: 1em;
+    }
   }
 }
 </style>

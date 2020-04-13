@@ -27,9 +27,15 @@ header {
   color: $dark-box-font;
   padding: $page-padding;
   padding-bottom: 2em;
+  @media only screen and (max-width: 500px) {
+    padding: 1em;
+  }
 
   .logo {
     font-size: 1.5em;
+    @media only screen and (max-width: 500px) {
+      font-size: 1.2em;
+    }
     &-emphasized {
       font-weight: bold;
     }

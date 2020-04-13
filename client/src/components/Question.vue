@@ -63,14 +63,24 @@ export default {
   text-align: center;
   border-bottom: 3em solid $dark-box-bg;
   background-color: $light-box-bg;
+  @media only screen and (max-width: 500px) {
+    padding: 1em 1.5em;
+  }
 
   h1 {
     font-size: 2em;
     font-weight: bold;
+
+    @media only screen and (max-width: 500px) {
+      font-size: 1.3em;
+    }
   }
   h2 {
     margin-top: 0.5em;
     font-size: 2.5em;
+    @media only screen and (max-width: 500px) {
+      font-size: 1.5em;
+    }
   }
   &-options {
     width: 100%;
@@ -79,6 +89,10 @@ export default {
     align-content: space-between;
     flex-wrap: wrap;
     margin-top: 2em;
+
+    @media only screen and (max-width: 500px) {
+      display: block;
+    }
   }
 
   &-button {

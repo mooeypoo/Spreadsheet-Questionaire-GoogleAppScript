@@ -22,19 +22,22 @@ export default {
   background-color: $dark-box-bg;
   color: $dark-box-font;
   padding: 3em $page-padding;
+  @media only screen and (max-width: 710px) {
+    padding: 1em;
+  }
 
   .content {
     padding-bottom: 2em;
     h1 {
       margin-bottom: 1em;
+      @media only screen and (max-width: 710px) {
+        font-size: 2em;
+      }
     }
 
     p {
       font-size: 1.5em;
     }
-  }
-  @media only screen and (max-width: 710px) {
-    padding-top: 0;
   }
 
   .image {

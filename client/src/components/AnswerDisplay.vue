@@ -45,6 +45,9 @@ export default {
 
   &-wrapper {
     display: flex;
+    @media only screen and (max-width: 500px) {
+      display: block;
+    }
   }
   &-text {
     flex-grow: 2;
