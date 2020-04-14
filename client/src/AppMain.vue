@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper full-height" id="req_app">
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar toggleable="md" type="dark" variant="dark">
       <b-navbar-brand href="#">
         <span class="logo-emphasized">Wiki</span>quaranteam
       </b-navbar-brand>
@@ -8,16 +8,16 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav right>
-            <b-nav-item
-              right
-              href="https://forms.gle/aHtXuw2ToNR4287u9"
-              target="_blank"
-            >Fill in the form!</b-nav-item>
+            <b-nav-item right href="https://forms.gle/aHtXuw2ToNR4287u9" target="_blank">
+              <b-icon icon="pencil"></b-icon>&nbsp;Fill in the form!
+            </b-nav-item>
             <b-nav-item
               right
               href="https://github.com/mooeypoo/Spreadsheet-Questionaire-GoogleAppScript"
               target="_blank"
-            >Contribute (GitHub)</b-nav-item>
+            >
+              <b-icon icon="braces"></b-icon>&nbsp;Contribute (GitHub)
+            </b-nav-item>
           </b-navbar-nav>
         </b-navbar-nav>
       </b-collapse>
