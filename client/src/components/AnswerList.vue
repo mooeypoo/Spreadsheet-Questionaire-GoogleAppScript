@@ -25,27 +25,6 @@ export default {
       score: "getScore",
       completed: "allCompleted"
     })
-  },
-  methods: {
-    getAccordionHeadProps: function(index) {
-      debugger;
-      let obj = {};
-      obj[`v-b-toggle.accordion-${index}`] = null;
-      return obj;
-    },
-    getAccordionBodyID: function(index) {
-      return `accordion-${index}`;
-    },
-    getBadgeText: function(question) {
-      debugger;
-      return question.status.correct
-        ? "Chosen correctly!"
-        : "You were close...";
-    },
-    getBadgeVariant: function(question) {
-      debugger;
-      return question.status.correct ? "success" : "danger";
-    }
   }
 };
 </script>
