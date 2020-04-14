@@ -1,25 +1,27 @@
 <template>
   <div class="quiz">
-    <Question v-if="!isEnded" />
+    <b-spinner v-if="!ready" variant="primary" type="grow" label="Spinning"></b-spinner>
+    <Question v-if="ready && !isEnded" />
     <h1 v-if="isEnded">That's it!</h1>
-    <AnswerList v-if="showAnswers" />
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
 import Question from "./Question";
-import AnswerList from "./AnswerList";
 export default {
   name: "Quiz",
-  components: { Question, AnswerList },
+  components: { Question },
+  created() {
+    this.$store.dispatch("quiz/getQuestions");
+  },
   computed: {
-    showAnswers: function() {
-      return this.completed.length;
-    },
+    ...mapState({
+      ready: state => state.quiz.ready,
+      error: state => state.quiz.error
+    }),
     ...mapGetters("quiz", {
-      isEnded: "isEnded",
-      completed: "allCompleted"
+      isEnded: "isEnded"
     })
   }
 };

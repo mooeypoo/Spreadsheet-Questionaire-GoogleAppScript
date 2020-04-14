@@ -5,10 +5,13 @@ const bw = new Backend();
 const state = {
   error: false,
   ready: false,
+  names: [],
   questions: [],
   completed: [],
-  score: 0,
-  total: 0
+  score: {
+    correct: 0,
+    completed: 0
+  }
 };
 
 // Actions
@@ -25,6 +28,16 @@ const actions = {
     bw.getQuestions().then(
       function(res) {
         commit('setQuestions', res);
+      },
+      function(res) {
+        commit('setError', true);
+      }
+    );
+  },
+  getNames({ state, commit }) {
+    bw.getQuestions().then(
+      function(res) {
+        commit('setNames', res);
       },
       function(res) {
         commit('setError', true);
@@ -67,15 +80,18 @@ const getters = {
   },
   isEnded: (state, getters, rootState) => {
     return !state.questions.length && state.completed.length;
+  },
+  getScore: (state, getters, rootState) => {
+    return state.score;
   }
 };
 
 // Mutations
 const mutations = {
   increaseScore(state, isCorrect) {
-    state.total++;
+    state.score.completed++;
     if (isCorrect) {
-      state.score++;
+      state.score.correct++;
     }
   },
   setCurrentAnswer(state, data) {
@@ -83,12 +99,15 @@ const mutations = {
     state.questions[0].status.correct = !!data.isCorrect;
   },
   nextQuestion(state) {
-    state.completed.push(state.questions[0]);
+    state.completed.unshift(state.questions[0]);
     state.questions.shift();
   },
   setQuestions(state, questions) {
     state.questions = questions;
     state.ready = true;
+  },
+  setNames(state, names) {
+    state.names = names;
   },
   setError(state, isError) {
     state.error = !!isError;

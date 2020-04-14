@@ -5,26 +5,31 @@
     </div>
     <div class="page-quiz-wrapper">
       <div class="page-quiz-content">
-        <b-spinner v-if="!ready" variant="primary" type="grow" label="Spinning"></b-spinner>
-        <Quiz v-if="ready" />
+        <Quiz />
+        <AnswerList v-if="ready && showAnswers" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from "vuex";
 import Quiz from "../components/Quiz";
-import { mapState } from "vuex";
+import AnswerList from "../components/AnswerList";
 export default {
   name: "QuizPage",
-  components: { Quiz },
-  created() {
-    this.$store.dispatch("quiz/getQuestions");
-  },
+  components: { Quiz, AnswerList },
   computed: {
+    showAnswers: function() {
+      return this.completed.length;
+    },
     ...mapState({
       ready: state => state.quiz.ready,
       error: state => state.quiz.error
+    }),
+    ...mapGetters("quiz", {
+      isEnded: "isEnded",
+      completed: "allCompleted"
     })
   }
 };

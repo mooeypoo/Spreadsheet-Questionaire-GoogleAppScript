@@ -58,6 +58,10 @@ class QuizBuilder {
     return this.questions;
   }
 
+  getNames() {
+    return this.names;
+  }
+
   collectNames(rows) {
     let names = [];
     const nameColId = this.getColumnIdByName('name');
