@@ -8,16 +8,39 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav right>
-            <b-nav-item right href="https://forms.gle/aHtXuw2ToNR4287u9" target="_blank">
-              <b-icon icon="pencil"></b-icon>&nbsp;Fill in the form!
-            </b-nav-item>
-            <b-nav-item
-              right
-              href="https://github.com/mooeypoo/Spreadsheet-Questionaire-GoogleAppScript"
-              target="_blank"
-            >
-              <b-icon icon="braces"></b-icon>&nbsp;Contribute (GitHub)
-            </b-nav-item>
+            <b-button variant="dark" to="info">
+              <b-icon icon="question-circle-fill"></b-icon>&nbsp;What is this
+            </b-button>
+            <b-button variant="dark" to="quiz">
+              <b-icon icon="exclamation-diamond-fill
+"></b-icon>&nbsp;Pop quiz
+            </b-button>
+            <b-button-group>
+              <b-dropdown text="Participate" right>
+                <b-dropdown-item
+                  variant="dark"
+                  href="https://forms.gle/aHtXuw2ToNR4287u9"
+                  target="_blank"
+                >
+                  <b-icon icon="pencil"></b-icon>&nbsp;Fill in the form!
+                  <sup>
+                    <b-icon icon="box-arrow-up-right
+"></b-icon>
+                  </sup>
+                </b-dropdown-item>
+                <b-dropdown-item
+                  variant="dark"
+                  href="https://github.com/mooeypoo/Spreadsheet-Questionaire-GoogleAppScript"
+                  target="_blank"
+                >
+                  <b-icon icon="braces"></b-icon>&nbsp;Contribute (GitHub)
+                  <sup>
+                    <b-icon icon="box-arrow-up-right
+"></b-icon>
+                  </sup>
+                </b-dropdown-item>
+              </b-dropdown>
+            </b-button-group>
           </b-navbar-nav>
         </b-navbar-nav>
       </b-collapse>
@@ -53,6 +76,18 @@ export default {
   }
   &.bg-dark {
     background-color: $dark-box-bg !important;
+  }
+
+  .btn {
+    &:not(:last-child) {
+      margin-right: 0.5em;
+      @media only screen and (max-width: 770px) {
+        margin-right: 0;
+        &:not(:last-child) {
+          margin-bottom: 0.5em;
+        }
+      }
+    }
   }
 }
 </style>

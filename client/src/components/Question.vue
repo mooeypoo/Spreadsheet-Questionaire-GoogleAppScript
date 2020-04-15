@@ -10,45 +10,48 @@
         :disabled="isAnswered"
         v-on:click="setAnswer(opt)"
         class="question-button"
-      >{{ opt }}</b-button>
+        >{{ opt }}</b-button
+      >
     </div>
     <div v-if="isAnswered" class="question-next">
-      <b-button variant="primary" v-on:click="goNextQuestion">Give me another!</b-button>
+      <b-button variant="primary" v-on:click="goNextQuestion"
+        >Give me another!</b-button
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from 'vuex';
 export default {
-  name: "Question",
+  name: 'Question',
   computed: {
-    ...mapGetters("quiz", {
-      current: "currentQuestion",
-      title: "currentQuestionTitle",
-      isAnswered: "isCurrentQuestionAnswered"
+    ...mapGetters('quiz', {
+      current: 'currentQuestion',
+      title: 'currentQuestionTitle',
+      isAnswered: 'isCurrentQuestionAnswered'
     })
   },
   methods: {
     setAnswer: function(answer) {
-      this.$store.dispatch("quiz/submitCurrentAnswer", answer);
+      this.$store.dispatch('quiz/submitCurrentAnswer', answer);
     },
     goNextQuestion: function() {
-      this.$store.dispatch("quiz/goToNextQuestion");
+      this.$store.dispatch('quiz/goToNextQuestion');
     },
     getButtonVariant: function(butName) {
       if (this.current.status.chosen && this.current.solution === butName) {
         // Correct answer
-        return "success";
+        return 'success';
       } else if (
         this.current.status.chosen === butName &&
         this.current.solution !== butName
       ) {
         // Chosen but is not the correct answer
-        return "outline-danger";
+        return 'outline-danger';
       } else {
         // Not chosen, not the solution
-        return "outline-primary";
+        return 'outline-primary';
       }
     }
   }
@@ -56,8 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/variables";
+@import '../scss/variables';
 .question {
+  color: $light-box-font;
   width: 100%;
   padding: 2em 3em;
   text-align: center;

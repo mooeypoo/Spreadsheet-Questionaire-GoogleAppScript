@@ -15,22 +15,22 @@
 
 <script>
 export default {
-  name: "AnswerDisplay",
-  props: ["data"],
+  name: 'AnswerDisplay',
+  props: ['data'],
   computed: {
     isCorrect: function() {
       return this.data.status.correct;
     },
     category: function() {
-      if (this.data.category === "fun_title") {
+      if (this.data.category === 'fun_title') {
         return {
-          text: "Fun title",
-          variant: "info"
+          text: 'Fun title',
+          variant: 'info'
         };
       } else {
         return {
-          text: "Fun fact",
-          variant: "warning"
+          text: 'Fun fact',
+          variant: 'warning'
         };
       }
     }
@@ -39,7 +39,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../scss/variables';
 .answer {
+  color: $light-box-font;
   margin: 1em 0;
 
   &-wrapper {
@@ -49,6 +51,7 @@ export default {
     }
   }
   &-text {
+    text-align: left;
     flex-grow: 2;
   }
 }

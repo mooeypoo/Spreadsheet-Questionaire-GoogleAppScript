@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
-    <div class="image">&nbsp;</div>
-    <div class="content">
+  <div class="page-wrapper">
+    <div class="page-image">&nbsp;</div>
+    <div class="page-content">
       <h1>Connecting, remotely</h1>
       <p>A socializing experiment for WMF'ers. Join in on the fun, don't touch your face.</p>
       <b-button to="/quiz" variant="warning">Quiz yourself</b-button>
@@ -18,29 +18,11 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/variables";
 
-.wrapper {
-  background-color: $dark-box-bg;
-  color: $dark-box-font;
-  padding: 3em $page-padding;
-  @media only screen and (max-width: 710px) {
-    padding: 1em;
+.page-wrapper {
+  p {
+    font-size: 1.5em;
   }
-
-  .content {
-    padding-bottom: 2em;
-    h1 {
-      margin-bottom: 1em;
-      @media only screen and (max-width: 710px) {
-        font-size: 2em;
-      }
-    }
-
-    p {
-      font-size: 1.5em;
-    }
-  }
-
-  .image {
+  .page-image {
     float: right;
     background: url(https://upload.wikimedia.org/wikipedia/commons/8/86/Laptop_with_stickers.jpg);
     background-repeat: no-repeat;

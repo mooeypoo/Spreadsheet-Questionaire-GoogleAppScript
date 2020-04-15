@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Pop Quiz</h1>
-    </div>
-    <div class="page-quiz-wrapper">
-      <div class="page-quiz-content">
-        <Quiz />
-        <AnswerList v-if="ready && showAnswers" />
+    <div class="page-wrapper">
+      <div class="page-header">
+        <h1>Pop Quiz</h1>
+      </div>
+      <div class="page-quiz-wrapper">
+        <div class="page-quiz-content">
+          <Quiz />
+          <AnswerList v-if="ready && showAnswers" />
+        </div>
       </div>
     </div>
   </div>
@@ -37,24 +39,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../scss/variables";
-.header {
-  width: 100%;
-  background-color: $dark-box-bg;
-  color: $dark-box-font;
-  padding: 0 $page-padding 2em 0;
-  @media only screen and (max-width: 500px) {
-    font-size: 1.7em;
-    padding: 0 0 0.5em 0;
-  }
-
-  h1 {
-    font-weight: bold;
-    text-align: center;
-    @media only screen and (max-width: 500px) {
-      padding: 0;
-    }
-  }
-}
 .page-quiz {
   &-wrapper {
     width: 100%;
