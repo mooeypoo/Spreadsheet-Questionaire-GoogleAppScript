@@ -14,6 +14,12 @@
       >
     </div>
     <div v-if="isAnswered" class="question-next">
+      <b-alert show v-if="current.status.correct" variant="success"
+        >Correct! <strong>{{ current.solution }}</strong></b-alert
+      >
+      <b-alert show v-if="!current.status.correct" variant="danger"
+        >You were close... <strong>{{ current.solution }}</strong></b-alert
+      >
       <b-button variant="primary" v-on:click="goNextQuestion"
         >Give me another!</b-button
       >
