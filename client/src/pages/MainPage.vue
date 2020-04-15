@@ -3,7 +3,10 @@
     <div class="page-image">&nbsp;</div>
     <div class="page-content">
       <h1>Connecting, remotely</h1>
-      <p>A socializing experiment for WMF'ers. Join in on the fun, don't touch your face.</p>
+      <p>
+        A socializing experiment for the Wikimedia Foundation family. Join in on
+        the fun, avoid touching your face.
+      </p>
       <b-button to="/quiz" variant="warning">Quiz yourself</b-button>
     </div>
   </div>
@@ -11,12 +14,12 @@
 
 <script>
 export default {
-  name: "MainPage"
+  name: 'MainPage'
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/variables";
+@import '../scss/variables';
 
 .page-wrapper {
   p {

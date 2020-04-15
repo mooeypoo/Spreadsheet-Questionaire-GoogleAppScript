@@ -94,6 +94,13 @@ export default {
     flex-wrap: wrap;
     margin-top: 2em;
 
+    .question-button {
+      font-size: 1.5em;
+      @media only screen and (max-width: 710px) {
+        font-size: 1em;
+      }
+    }
+
     @media only screen and (max-width: 500px) {
       display: block;
     }

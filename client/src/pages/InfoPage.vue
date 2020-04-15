@@ -9,11 +9,15 @@
         <span class="emphasis">distant socializing</span> experiment.<br />
 		This is our place to continue connecting, remotely.
       </b-alert>
+      <h2>Why was this made?</h2>
+	  <p>This project was made for the fun, as a side project, to encourage and promote connections among us, especially during these challenging times.</p>
+	  <p>If you smiled, giggled, found a fact or title funny or touching or interesting, and if this made you feel connected, or reach out and connect with others, then the purpose was met.</p>
+	  <p>Do enjoy, and avoid touching your face.</p>
       <h2>What is the pop quiz?</h2>
       <b-alert show variant="primary">This quiz is a way to connect and get to know your fellow WMF'ers by interacting with the tidbits they've shared about themselves. The idea isn't competition -- it's connection.</b-alert>
       <h3>How does it work?</h3>
       <b-alert show variant="primary">
-		  The information in this quiz is taken from a form we've shared with you. The form included a few fun questions that were aimed at hashing out some of the great hidden gems and factoids about our peers. By playing the quiz, you can learn about your peers and, hopefully, feel the connections that we share.</b-alert>
+		  The information in this quiz is taken from a form we have shared with you. The form included a few fun questions that were aimed at hashing out some of the great hidden gems and factoids about our peers. By playing the quiz, you can learn about your peers and, hopefully, feel the connections that we share.</b-alert>
       <p>The quiz has very basic rules of operation:</p>
       <ul class="rules">
         <li><span class="emphasis">Driven by the form data</span><br />
