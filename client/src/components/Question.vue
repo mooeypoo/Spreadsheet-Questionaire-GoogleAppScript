@@ -18,7 +18,7 @@
         >Correct! <strong>{{ current.solution }}</strong></b-alert
       >
       <b-alert show v-if="!current.status.correct" variant="danger"
-        >You were close... <strong>{{ current.solution }}</strong></b-alert
+        >Not quite! <strong>{{ current.solution }}</strong></b-alert
       >
       <b-button variant="primary" v-on:click="goNextQuestion"
         >Give me another!</b-button
