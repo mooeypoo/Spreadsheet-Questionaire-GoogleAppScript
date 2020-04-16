@@ -17,7 +17,7 @@
               <b-icon icon="exclamation-diamond-fill"></b-icon>&nbsp;Quiz yourself!
             </b-button>
           </div>
-          <Slide v-if="isReady && !isEnded" :data="current" />
+          <Slide v-if="isReady && !isEnded" :data="current" :emoji="currEmoji" />
           <div class="page-jokes-nextbutton">
             <b-button
               v-if="isReady && !isEnded"
@@ -35,9 +35,31 @@
 <script>
 import Slide from "../components/Slide";
 import JokesList from "../components/JokesList";
+import Tools from "../services/Tools";
 export default {
   name: "JokesPage",
   components: { Slide, JokesList },
+  data() {
+    return {
+      emojiList: [
+        "😀",
+        "😆",
+        "🤣",
+        "🙃",
+        "😁",
+        "😄",
+        "😋",
+        "😂",
+        "🤭",
+        "😅",
+        "😜",
+        "🤪",
+        "🤔",
+        "🤩"
+      ],
+      currEmoji: "🤣"
+    };
+  },
   created() {
     this.$store.dispatch("slideshow/fetchSlides", "jokes");
   },
@@ -58,6 +80,7 @@ export default {
   methods: {
     getNextJoke: function() {
       this.$store.dispatch("slideshow/goToNextSlide", "jokes");
+      this.currEmoji = Tools.getRandomElement(this.emojiList);
     }
   }
 };

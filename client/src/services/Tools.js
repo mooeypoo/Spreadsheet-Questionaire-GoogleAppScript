@@ -18,6 +18,10 @@ class Tools {
 
     return arr;
   }
+
+  static getRandomElement(arr = []) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
 }
 
 export default Tools;

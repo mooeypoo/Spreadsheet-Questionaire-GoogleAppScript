@@ -14,7 +14,7 @@
 	  <p>If you smiled, giggled, found a fact or title funny or touching or interesting, and if this made you feel connected, or reach out and connect with others, then the purpose was met.</p>
 	  <p>Do enjoy, and avoid touching your face.</p>
       <h2>What is the pop quiz?</h2>
-      <b-alert show variant="primary">This quiz is a way to connect and get to know your fellow WMF'ers by interacting with the tidbits they've shared about themselves. The idea isn't competition -- it's connection.</b-alert>
+      <b-alert show variant="primary">This quiz is a way to connect and get to know your fellow Wikimedia Foundation fam by interacting with the tidbits they've shared about themselves. The idea isn't competition -- it's connection.</b-alert>
       <h3>How does it work?</h3>
       <b-alert show variant="primary">
 		  The information in this quiz is taken from a form we have shared with you. The form included a few fun questions that were aimed at hashing out some of the great hidden gems and factoids about our peers. By playing the quiz, you can learn about your peers and, hopefully, feel the connections that we share.</b-alert>
@@ -28,7 +28,7 @@
 		This means that every time you reload the page, you get the questions newly reshuffled and your score resets.</li>
         <li><span class="emphasis">Works only for wikimedia.org accounts</span><br />
 		You can play this quiz on any browser that is signed into your wikimedia.org account. Yes, mobile too.</li>
-        <li><span class="emphasis">The data is stored in the wikimedia Google Doc domain.</span>
+        <li><span class="emphasis">The data is stored in the wikimedia.org Google Doc domain.</span>
           The code is
           <a
             href="https://github.com/mooeypoo/Spreadsheet-Questionaire-GoogleAppScript"

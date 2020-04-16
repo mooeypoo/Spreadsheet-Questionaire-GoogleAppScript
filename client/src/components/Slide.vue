@@ -4,6 +4,7 @@
     <div class="slide-name">
       <span class="slide-name-by">by&nbsp;</span>
       {{data.name}}
+      <span v-if="emoji" class="slide-name-emoji">&nbsp;{{emojiIcon}}</span>
     </div>
   </div>
 </template>
@@ -11,10 +12,13 @@
 <script>
 export default {
   name: "Slide",
-  props: ["data", "small"],
+  props: ["data", "small", "emoji"],
   computed: {
     sizeClass: function() {
       return this.small !== undefined ? "slide-small" : "";
+    },
+    emojiIcon: function() {
+      return this.emoji !== undefined ? this.emoji : "";
     }
   }
 };
