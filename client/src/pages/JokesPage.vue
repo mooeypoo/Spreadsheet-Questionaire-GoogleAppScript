@@ -5,9 +5,18 @@
         <h1>Jokes</h1>
       </div>
       <div class="page-jokes-wrapper">
-        <h2>Laughter is good for the social distancing soul...</h2>
+        <h2 v-if="!isEnded">Laughter is good for the social distancing soul...</h2>
         <div class="page-jokes-content">
-          <h1 v-if="isEnded" class="page-jokes-done">You've read them all. Wasn't that hilarious!?</h1>
+          <div class="spinner-container" v-if="!isReady">
+            <b-spinner class="spinner" variant="light" label="Loading..."></b-spinner>
+          </div>
+          <div v-if="isEnded" class="page-jokes-done">
+            <p>You've read them all.</p>
+            <p>If you think that was hilarious -- try the quiz!</p>
+            <b-button class="button-link p-3" to="/quiz" variant="warning">
+              <b-icon icon="exclamation-diamond-fill"></b-icon>&nbsp;Quiz yourself!
+            </b-button>
+          </div>
           <Slide v-if="isReady && !isEnded" :data="current" />
           <div class="page-jokes-nextbutton">
             <b-button
@@ -66,6 +75,9 @@ export default {
     h2 {
       font-size: 1.2em;
       text-align: center;
+      @media only screen and (max-width: 710px) {
+        font-size: 0.9em;
+      }
     }
   }
   &-content {
@@ -82,6 +94,7 @@ export default {
     }
   }
   &-done {
+    font-size: 1.5em;
     margin: 2em 0;
     text-align: center;
   }

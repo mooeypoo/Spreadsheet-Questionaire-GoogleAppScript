@@ -1,6 +1,8 @@
 <template>
   <div class="quiz">
-    <b-spinner v-if="!ready" variant="primary" type="grow" label="Spinning"></b-spinner>
+    <div class="spinner-container" v-if="!ready">
+      <b-spinner class="spinner" variant="light" label="Loading..."></b-spinner>
+    </div>
     <Question v-if="ready && !isEnded" />
     <h1 v-if="isEnded">That's it!</h1>
   </div>

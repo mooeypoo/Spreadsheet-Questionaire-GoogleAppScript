@@ -28,11 +28,5 @@ export default {
     color: $dark-box-font;
     font-size: 1.5em;
   }
-  &-wrapper {
-    padding: 2em 0;
-    @media only screen and (max-width: 500px) {
-      padding: 1em 0;
-    }
-  }
 }
 </style>

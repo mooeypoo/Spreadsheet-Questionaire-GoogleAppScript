@@ -7,6 +7,15 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.spinner {
+  &-container {
+    margin: 2em 0;
+    text-align: center;
+  }
+  width: 10em;
+  height: 10em;
+}
+
 .page {
   &-wrapper {
     background-color: $dark-box-bg;
