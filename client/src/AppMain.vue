@@ -15,6 +15,10 @@
               <b-icon icon="exclamation-diamond-fill
 "></b-icon>&nbsp;Pop quiz
             </b-button>
+            <b-button variant="dark" to="jokes">
+              <b-icon icon="chat-dots
+"></b-icon>&nbsp;Jokes
+            </b-button>
             <b-button-group>
               <b-dropdown text="Participate" right>
                 <b-dropdown-item

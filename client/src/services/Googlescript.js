@@ -1,8 +1,14 @@
 'use strict';
 
 class Googlescript {
+  constructor() {
+    this.rowsPromise = null;
+  }
   getRows() {
-    return new Promise((resolve, reject) => {
+    if (this.rowsPromise) {
+      return this.rowsPromise;
+    }
+    this.rowsPromise = new Promise((resolve, reject) => {
       google.script.run
         .withSuccessHandler(function(res) {
           resolve(res);
@@ -12,6 +18,8 @@ class Googlescript {
         })
         .getRows();
     });
+
+    return this.rowsPromise;
   }
 }
 
