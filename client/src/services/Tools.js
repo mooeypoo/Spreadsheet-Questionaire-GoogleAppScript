@@ -1,6 +1,12 @@
 'use strict';
 
 class Tools {
+  /**
+   * Shuffle the items in the given array.
+   *
+   * @param {Array} arr
+   * @returns {Array} Shuffled array
+   */
   static shuffle(arr = []) {
     let currentIndex = arr.length;
 
@@ -19,6 +25,12 @@ class Tools {
     return arr;
   }
 
+  /**
+   * Get a random item from the given array.
+   *
+   * @param {Array} arr
+   * @returns {*} Random item
+   */
   static getRandomElement(arr = []) {
     return arr[Math.floor(Math.random() * arr.length)];
   }

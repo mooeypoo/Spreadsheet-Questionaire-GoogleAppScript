@@ -1,6 +1,10 @@
 import Backend from '../../services/Backend';
 const bw = new Backend();
 
+/**
+ * Vuex Store definition for the quiz and its questions.
+ */
+
 // Initial state
 const state = {
   error: false,
@@ -10,8 +14,8 @@ const state = {
   completed: [],
   score: {
     correct: 0,
-    completed: 0
-  }
+    completed: 0,
+  },
 };
 
 // Actions
@@ -43,7 +47,7 @@ const actions = {
         commit('setError', true);
       }
     );
-  }
+  },
 };
 
 // Getters
@@ -66,12 +70,12 @@ const getters = {
     return state.completed;
   },
   getCompletedCorrect: (state, getters, rootState) => {
-    return state.completed.filter(q => {
+    return state.completed.filter((q) => {
       return q.status.correct;
     });
   },
   getCompletedIncorrect: (state, getters, rootState) => {
-    return state.completed.filter(q => {
+    return state.completed.filter((q) => {
       return !q.status.correct;
     });
   },
@@ -83,7 +87,7 @@ const getters = {
   },
   getScore: (state, getters, rootState) => {
     return state.score;
-  }
+  },
 };
 
 // Mutations
@@ -111,7 +115,7 @@ const mutations = {
   },
   setError(state, isError) {
     state.error = !!isError;
-  }
+  },
 };
 
 export default {
@@ -119,5 +123,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 };

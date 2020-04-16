@@ -30,7 +30,16 @@ const config = {
   },
 };
 
+/**
+ * Collect and process spreadsheet rows into the data needed for the app.
+ */
 class Backend {
+  /**
+   * Initialize the engine depending on whether the environment is
+   * Google App Script production, or local mock script.
+   *
+   * @constructor
+   */
   constructor() {
     this.questions = [];
     this.slideshow = {};
@@ -41,6 +50,10 @@ class Backend {
     }
   }
 
+  /**
+   * Fetch the rows and produce the questions.
+   * Cache the questions object so it can be recalled.
+   */
   getQuestions() {
     if (this.questions.length) {
       // If qustions are already built, return it
@@ -62,6 +75,13 @@ class Backend {
     ); //promise
   }
 
+  /**
+   * Fetch the rows and produce the slides, based on the given column name.
+   * Cache the result object so it can be recalled.
+   * @param {string} colname The name of the column that produces the
+   *  content of the slideshow. The other column required is "name" for
+   *  the attribution.
+   */
   getSlides(colname) {
     if (
       this.slideshow &&

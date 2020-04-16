@@ -2,6 +2,17 @@
 import Tools from './Tools';
 
 class SlideshowBuilder {
+  /**
+   * Construct the slideshow.
+   *
+   * @constructor
+   * @param {String[][]} rows Array of rows, comprised of array of column values
+   * @param {String} colname The name of the column that is used to create the slideshow items
+   * @param {Object} config Configuration object
+   * @param {Boolean} [config.shuffle=true] Shuffle the slideshow results.
+   *  If false, the order will be deterministic, based on the order of the
+   *  rows in the spreadsheet.
+   */
   constructor(rows, colname, config = {}) {
     this.structure = config.structure || {};
     this.shuffled = config.shuffled === undefined ? true : !!config.shuffled;
@@ -18,6 +29,10 @@ class SlideshowBuilder {
     this.collectSlides(rows);
   }
 
+  /**
+   * Collect the slides from the row array
+   * @param {String[][]} rows
+   */
   collectSlides(rows) {
     this.slides = [];
     // Collect slides content based on the given column name
@@ -37,9 +52,21 @@ class SlideshowBuilder {
     }
   }
 
+  /**
+   * Get the slide definition as an object with the key represneting
+   * the column name, and the value holding the items
+   */
   getSlides() {
     return this.slides;
   }
+
+  /**
+   * Get the index of the column within the rows, based on its
+   * symbolic name from the given structure definition.
+   *
+   * @param {string} colName Column name
+   * @returns {Number} Index of the column in the row array
+   */
   getColumnIdByName(colName = '') {
     return this.columnNames.indexOf(colName);
   }

@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Fetch spreadsheet data form the Google App domain.
+ * This should only happen once per session, so cache
+ * the results.
+ */
 class Googlescript {
   constructor() {
     this.rowsPromise = null;

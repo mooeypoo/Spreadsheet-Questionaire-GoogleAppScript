@@ -2,7 +2,7 @@
   <div class="wrapper full-height" id="req_app">
     <b-navbar toggleable="md" type="dark" variant="dark">
       <b-navbar-brand href="#">
-        <span class="logo-emphasized">Wiki</span>quaranteam
+        <span class="logo-emphasized wikifont">Wiki</span>quaranteam
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -70,7 +70,7 @@ export default {
     font-size: 1.2em;
   }
   &-emphasized {
-    font-weight: bold;
+    font-size: 1.2em;
   }
 }
 

@@ -2,6 +2,10 @@ import Backend from '../../services/Backend';
 import Vue from 'vue';
 const bw = new Backend();
 
+/**
+ * Vuex Store definition for slideshow type displays
+ */
+
 // Initial state
 const state = {
   ready: [],

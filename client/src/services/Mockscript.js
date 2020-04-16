@@ -11,7 +11,7 @@ const fakeRows = [
     'joke1',
     'animal1',
     'videocall1',
-    'Person 1'
+    'Person 1',
   ],
   [
     // '113234',
@@ -24,7 +24,7 @@ const fakeRows = [
     'joke2',
     'animal2',
     'videocall2',
-    'Person 2'
+    'Person 2',
   ],
   [
     // '113234',
@@ -37,7 +37,7 @@ const fakeRows = [
     'joke3',
     'animal3',
     'videocall3',
-    'Person 3'
+    'Person 3',
   ],
   [
     // '113234',
@@ -50,9 +50,14 @@ const fakeRows = [
     'joke4',
     'animal4',
     'videocall4',
-    'Person 4'
-  ]
+    'Person 4',
+  ],
 ];
+
+/**
+ * Mock spreadsheet results for cases where the app
+ * is runing locally.
+ */
 class Mockscript {
   getRows() {
     return this.delay(fakeRows);

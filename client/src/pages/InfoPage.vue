@@ -58,6 +58,7 @@
 		<li><span class="emphasis">Development:</span> Moriel Schottlender </li>
 		<li><span class="emphasis">Guidance, ideas, and support:</span> Cara Palanca</li>
 		<li><span class="emphasis">Design guidance:</span> Jess Klein</li>
+    <li><span class="emphasis">Testing and feature wrangling:</span> Greg Varnum, Ilana Fried.</li>
 		</ul>
     </div>
   </div>
