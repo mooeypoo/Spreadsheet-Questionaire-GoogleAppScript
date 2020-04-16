@@ -5,12 +5,12 @@
     </div>
     <div class="page-content">
       <b-alert show variant="primary">
-        Welcome to the Wikimedia Foundation experimental
+        Welcome to the Wikimedia Foundation
         <span class="emphasis">distant socializing</span> experiment.<br />
 		This is our place to continue connecting, remotely.
       </b-alert>
       <h2>Why was this made?</h2>
-	  <p>This project was made for the fun, as a side project, to encourage and promote connections among us, especially during these challenging times.</p>
+	  <p>This project was made for fun, as a side project, to encourage and promote connections among us, especially during these challenging times.</p>
 	  <p>If you smiled, giggled, found a fact or title funny or touching or interesting, and if this made you feel connected, or reach out and connect with others, then the purpose was met.</p>
 	  <p>Do enjoy, and avoid touching your face.</p>
       <h2>What is the pop quiz?</h2>
