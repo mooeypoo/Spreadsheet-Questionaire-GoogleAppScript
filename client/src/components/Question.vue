@@ -21,34 +21,10 @@
         Not quite!
         <strong>{{ current.solution }}</strong>
       </b-alert>
-      <b-button
-        variant="danger"
-        class="question-next-button btn-lg"
-        v-on:click="goNextQuestion"
-      >Give me another!</b-button>
-      <div class="question-chat">
-        <div class="question-chat-head">Start a conversation about this!</div>
-        <div class="question-chat-links">
-          <b-button
-            pill
-            class="question-chat-links-button"
-            href="https://wikimedia.slack.com/archives/C0120P3BKDZ"
-            target="_blank"
-            variant="outline-secondary"
-          >
-            <img src="https://img.icons8.com/officexs/24/000000/slack.png" />
-          </b-button>
-          <b-button
-            class="question-chat-links-button"
-            href="https://www.irccloud.com/invite?channel=%23wikimedia-staff&hostname=irc.freenode.net&port=6697&ssl=1"
-            target="_blank"
-            pill
-            variant="outline-secondary"
-          >
-            <img src="https://img.icons8.com/ios-glyphs/24/000000/chat.png" />
-          </b-button>
-        </div>
-      </div>
+      <b-button variant="danger" class="question-next-button btn-lg" v-on:click="goNextQuestion">
+        Give me another!
+        <b-icon-arrow-right></b-icon-arrow-right>
+      </b-button>
     </div>
   </div>
 </template>
@@ -97,7 +73,6 @@ export default {
   width: 100%;
   padding: 2em 3em;
   text-align: center;
-  border-bottom: 3em solid $dark-box-bg;
   background-color: $light-box-bg;
   @media only screen and (max-width: 500px) {
     padding: 1em 1.5em;
@@ -156,22 +131,6 @@ export default {
     }
     &-chosen {
       background-color: #ccc;
-    }
-  }
-
-  &-chat {
-    margin-top: 1em;
-    border-top: 1px solid #ccc;
-
-    &-head {
-      font-size: 0.8em;
-    }
-
-    &-links {
-      &-button {
-        margin-top: 0.5em;
-        font-size: 0.8em;
-      }
     }
   }
 }

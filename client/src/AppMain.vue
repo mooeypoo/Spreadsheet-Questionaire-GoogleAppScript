@@ -8,6 +8,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav right>
+            <ChatButtons small />
             <b-button variant="dark" to="info">
               <b-icon icon="question-circle-fill"></b-icon>&nbsp;What is this
             </b-button>
@@ -56,8 +57,10 @@
 </template>
 <script>
 import router from "./routes";
+import ChatButtons from "./components/ChatButtons";
 export default {
   name: "AppMain",
+  components: { ChatButtons },
   router
 };
 </script>
@@ -92,6 +95,13 @@ export default {
         }
       }
     }
+  }
+}
+
+.chat-buttons {
+  margin-right: 1em;
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 0.5em;
   }
 }
 </style>

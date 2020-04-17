@@ -60,4 +60,7 @@ export default {
     }
   }
 }
+.quiz {
+  margin-bottom: 0.5em;
+}
 </style>

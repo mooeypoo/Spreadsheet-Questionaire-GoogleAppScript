@@ -22,9 +22,17 @@
             <b-button
               v-if="isReady && !isEnded"
               variant="warning"
+              class="btn-lg"
               v-on:click="getNextJoke"
-            >Give me another!</b-button>
+            >
+              Give me another!
+              <b-icon-arrow-right></b-icon-arrow-right>
+            </b-button>
           </div>
+          <b-card class="text-center page-jokes-chat text-dark">
+            <div class="page-jokes-chat-head">Start a conversation about this!</div>
+            <ChatButtons small />
+          </b-card>
           <JokesList v-if="shouldShowSeenJokes" />
         </div>
       </div>
@@ -35,10 +43,11 @@
 <script>
 import Slide from "../components/Slide";
 import JokesList from "../components/JokesList";
+import ChatButtons from "../components/ChatButtons";
 import Tools from "../services/Tools";
 export default {
   name: "JokesPage",
-  components: { Slide, JokesList },
+  components: { Slide, JokesList, ChatButtons },
   data() {
     return {
       emojiList: [
@@ -124,6 +133,9 @@ export default {
   }
   &-nextbutton {
     text-align: center;
+  }
+  &-chat {
+    margin-top: 1em;
   }
 }
 </style>
