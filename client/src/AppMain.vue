@@ -8,7 +8,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav right>
-            <ChatButtons small />
+            <ChatButtons small-dark />
             <b-button variant="dark" to="info">
               <b-icon icon="question-circle-fill"></b-icon>&nbsp;What is this
             </b-button>

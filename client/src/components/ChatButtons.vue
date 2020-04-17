@@ -7,7 +7,8 @@
       target="_blank"
       :variant="buttonData.variant"
     >
-      <img src="https://img.icons8.com/officexs/24/000000/slack.png" />
+      <img src="https://img.icons8.com/officexs/16/000000/slack.png" />
+      <small>Slack</small>
       {{buttonData.text.slack}}
     </b-button>
     <b-button
@@ -28,7 +29,7 @@
 import Tools from "../services/Tools";
 export default {
   name: "ChatButtons",
-  props: ["small"],
+  props: ["small", "small-dark"],
   computed: {
     slackLink: function() {
       return Tools.isMobileOrTablet()
@@ -44,6 +45,11 @@ export default {
       if (this.small !== undefined) {
         return {
           variant: "outline-secondary",
+          text: { irc: "", slack: "" }
+        };
+      } else if (this.smallDark !== undefined) {
+        return {
+          variant: "dark",
           text: { irc: "", slack: "" }
         };
       }
