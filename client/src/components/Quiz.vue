@@ -6,7 +6,7 @@
     <Question v-if="ready && !isEnded" />
     <h1 v-if="isEnded">That's it!</h1>
     <b-card v-if="ready" class="text-center quiz-chat text-dark">
-      <div class="quiz-chat-head">Start a conversation about this!</div>
+      <div class="quiz-chat-head">Join others talking about this!</div>
       <ChatButtons small />
     </b-card>
   </div>

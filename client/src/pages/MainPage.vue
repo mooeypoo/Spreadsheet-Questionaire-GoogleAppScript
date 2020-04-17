@@ -10,19 +10,16 @@
 
       <div class="page-buttons">
         <div class="page-buttons-button">
-          <b-button class="button-link p-3" to="/info" variant="secondary">
-            <b-icon icon="question-circle-fill"></b-icon>&nbsp;What is this?
-          </b-button>
-        </div>
-        <div class="page-buttons-button">
           <b-button class="button-link p-3" to="/quiz" variant="warning">
             <b-icon icon="exclamation-diamond-fill"></b-icon>&nbsp;Quiz yourself!
           </b-button>
+          <div class="page-buttons-text">See how well you know your colleagues at the Foundation!</div>
         </div>
         <div class="page-buttons-button">
           <b-button class="button-link p-3" to="/jokes" variant="dark">
             <b-icon icon="chat-dots"></b-icon>&nbsp;Read some jokes
           </b-button>
+          <div class="page-buttons-text">Laughter is good for the distant socializing soul!</div>
         </div>
       </div>
     </div>
@@ -51,6 +48,12 @@ export default {
 
     @media only screen and (max-width: 500px) {
       width: 100%;
+    }
+
+    &-text {
+      width: 70%;
+      margin: 0 auto;
+      font-weight: bold;
     }
 
     &-button {

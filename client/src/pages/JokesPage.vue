@@ -29,8 +29,9 @@
               <b-icon-arrow-right></b-icon-arrow-right>
             </b-button>
           </div>
+
           <b-card v-if="isReady" class="text-center page-jokes-chat text-dark">
-            <div class="page-jokes-chat-head">Start a conversation about this!</div>
+            <div class="page-jokes-chat-head">Join others talking about this!</div>
             <ChatButtons small />
           </b-card>
           <JokesList v-if="shouldShowSeenJokes" />
