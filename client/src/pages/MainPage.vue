@@ -44,6 +44,9 @@ export default {
   &-buttons {
     width: 400px;
     text-align: center;
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+    }
     &-button {
       display: block;
       margin-top: 2em;

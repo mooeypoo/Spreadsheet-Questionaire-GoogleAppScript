@@ -48,6 +48,33 @@
       <b-alert show variant="warning">
         <span class="emphasis">Note:</span> If you've previously answered the form, you can also use the button above to edit or add to your responses.
       </b-alert>
+      <h2>Let's chat!</h2>
+      <p>If you've seen a great factoid, or funny joke, you might want to connect to your peers, and chat, laugh, and enjoy one another's wittiness.</p>
+      <p>Here are two places to start a conversation:</p>
+        <div class="chat-links">
+          <b-button
+                   class="btn-lg chat-links-button"
+            href="https://wikimedia.slack.com/archives/C0120P3BKDZ"
+            target="_blank"
+            variant="dark"
+          >
+            <img src="https://img.icons8.com/officexs/64/000000/slack.png" />
+            &nbsp;#distantsocializing
+          </b-button>
+          <b-button
+            class="btn-lg chat-links-button"
+            href="https://www.irccloud.com/invite?channel=%23wikimedia-staff&hostname=irc.freenode.net&port=6697&ssl=1"
+            target="_blank"
+            
+            variant="dark"
+          >
+            <img src="https://img.icons8.com/ios-glyphs/64/000000/chat.png" />
+            &nbsp;#wikimedia-staff
+          </b-button>
+      <b-alert show variant="warning">
+        <span class="emphasis">Note:</span> Please remember the information shared here was intended only to the Wikimedia Foundatin family; only chat in a place that's limited to Wikimedia Foundation family, unless you get explicit permission from the person who posted the information.
+      </b-alert>
+        </div>
       <h2>Credits and Participation</h2>
 	  <p>Participating is appreciated! Please add feature requests, bug reports and general contributions: <b-button variant="warning" href="https://github.com/mooeypoo/Spreadsheet-Questionaire-GoogleAppScript" target="_blank">GitHub<sup>
                     <b-icon icon="box-arrow-up-right
@@ -60,6 +87,7 @@
 		<li><span class="emphasis">Design guidance:</span> Jess Klein</li>
     <li><span class="emphasis">Testing and feature wrangling:</span> Greg Varnum, Ilana Fried.</li>
 		</ul>
+<a href="https://icons8.com/icon/d74IkjBF0-ns/slack">Chat and Slack icons by Icons8</a>
     </div>
   </div>
 </template>
@@ -103,6 +131,15 @@ export default {
   .button-box {
     text-align: center;
     margin: 1em 0;
+  }
+
+  .chat-links {
+    margin: 1em 0;
+    text-align: center;
+
+    &-button {
+      margin-bottom: 1em;
+    }
   }
 }
 </style>

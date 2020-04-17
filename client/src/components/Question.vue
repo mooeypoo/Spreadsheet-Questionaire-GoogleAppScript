@@ -13,15 +13,42 @@
       >{{ opt }}</b-button>
     </div>
     <div v-if="isAnswered" class="question-next">
-      <b-alert show v-if="current.status.correct" variant="success">
+      <b-alert class="question-next-alert" show v-if="current.status.correct" variant="success">
         Correct!
         <strong>{{ current.solution }}</strong>
       </b-alert>
-      <b-alert show v-if="!current.status.correct" variant="danger">
+      <b-alert class="question-next-alert" show v-if="!current.status.correct" variant="danger">
         Not quite!
         <strong>{{ current.solution }}</strong>
       </b-alert>
-      <b-button variant="primary" v-on:click="goNextQuestion">Give me another!</b-button>
+      <b-button
+        variant="danger"
+        class="question-next-button btn-lg"
+        v-on:click="goNextQuestion"
+      >Give me another!</b-button>
+      <div class="question-chat">
+        <div class="question-chat-head">Start a conversation about this!</div>
+        <div class="question-chat-links">
+          <b-button
+            pill
+            class="question-chat-links-button"
+            href="https://wikimedia.slack.com/archives/C0120P3BKDZ"
+            target="_blank"
+            variant="outline-secondary"
+          >
+            <img src="https://img.icons8.com/officexs/24/000000/slack.png" />
+          </b-button>
+          <b-button
+            class="question-chat-links-button"
+            href="https://www.irccloud.com/invite?channel=%23wikimedia-staff&hostname=irc.freenode.net&port=6697&ssl=1"
+            target="_blank"
+            pill
+            variant="outline-secondary"
+          >
+            <img src="https://img.icons8.com/ios-glyphs/24/000000/chat.png" />
+          </b-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -91,13 +118,23 @@ export default {
       font-size: 1.5em;
     }
   }
+
+  &-next {
+    &-alert {
+      font-size: 0.9em;
+    }
+
+    &-button {
+      font-size: 1.5em;
+    }
+  }
   &-options {
     width: 100%;
     display: flex;
+    margin-top: 1em;
     justify-content: space-between;
     align-content: space-between;
     flex-wrap: wrap;
-    margin-top: 2em;
 
     .question-button {
       font-size: 1.5em;
@@ -119,6 +156,22 @@ export default {
     }
     &-chosen {
       background-color: #ccc;
+    }
+  }
+
+  &-chat {
+    margin-top: 1em;
+    border-top: 1px solid #ccc;
+
+    &-head {
+      font-size: 0.8em;
+    }
+
+    &-links {
+      &-button {
+        margin-top: 0.5em;
+        font-size: 0.8em;
+      }
     }
   }
 }
