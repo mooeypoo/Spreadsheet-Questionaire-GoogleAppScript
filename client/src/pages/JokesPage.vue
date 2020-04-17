@@ -29,7 +29,7 @@
               <b-icon-arrow-right></b-icon-arrow-right>
             </b-button>
           </div>
-          <b-card class="text-center page-jokes-chat text-dark">
+          <b-card v-if="isReady" class="text-center page-jokes-chat text-dark">
             <div class="page-jokes-chat-head">Start a conversation about this!</div>
             <ChatButtons small />
           </b-card>

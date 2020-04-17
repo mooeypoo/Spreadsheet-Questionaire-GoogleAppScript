@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper full-height" id="req_app">
     <b-navbar toggleable="md" type="dark" variant="dark">
-      <b-navbar-brand href="#">
-        <span class="logo-emphasized wikifont">Wiki</span>quaranteam
+      <b-navbar-brand class="logo" to="/">
+        <span class="logo-emphasized wikifont">Wiki</span>Quaranteam
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -69,6 +69,7 @@ export default {
 @import "./scss/variables";
 .logo {
   font-size: 1.5em;
+  font-variant: small-caps;
   @media only screen and (max-width: 500px) {
     font-size: 1.2em;
   }

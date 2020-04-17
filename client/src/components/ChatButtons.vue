@@ -18,8 +18,9 @@
       target="_blank"
       :variant="buttonData.variant"
     >
-      <small>IRC</small>
       <!-- <img src="https://img.icons8.com/ios-glyphs/24/000000/chat.png" /> -->
+      <b-icon-hash></b-icon-hash>
+      <small>IRC</small>
       {{buttonData.text.irc}}
     </b-button>
   </div>

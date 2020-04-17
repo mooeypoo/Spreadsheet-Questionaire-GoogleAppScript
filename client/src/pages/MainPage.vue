@@ -11,7 +11,7 @@
       <div class="page-buttons">
         <div class="page-buttons-button">
           <b-button class="button-link p-3" to="/info" variant="secondary">
-            <b-icon icon="question-circle-fill"></b-icon>&nbsp;What is this, anyway?
+            <b-icon icon="question-circle-fill"></b-icon>&nbsp;What is this?
           </b-button>
         </div>
         <div class="page-buttons-button">
@@ -44,9 +44,15 @@ export default {
   &-buttons {
     width: 400px;
     text-align: center;
+
+    @media only screen and (max-width: 1110px) {
+      width: 350px;
+    }
+
     @media only screen and (max-width: 500px) {
       width: 100%;
     }
+
     &-button {
       display: block;
       margin-top: 2em;
