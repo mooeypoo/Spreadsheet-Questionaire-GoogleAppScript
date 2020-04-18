@@ -90,20 +90,37 @@ export default {
       width: 100px + 20px;
     }
 
+    .option-buttons-button-text {
+      padding: 0.375em 0.75em;
+      margin-top: 0.5em;
+      border: 1px solid;
+      opacity: 0.65;
+      @media only screen and (max-width: 500px) {
+        padding: 0.2em 0.5em;
+      }
+    }
+
     &.opt-correct .option-buttons-button-text {
-      background-color: #8acb99;
-      border: 2px solid #8acb99;
-      font-weight: bold;
-      border-radius: 10px;
+      background-color: #28a745;
+      border-color: #28a745;
+      color: white;
     }
 
     &.opt-incorrect .option-buttons-button-text {
-      border: 2px dashed #cccccc;
-      border-radius: 10px;
+      border-color: #dc3545;
+      color: #dc3545;
     }
 
-    &.opt-active:hover {
-      background-color: #cdbde5;
+    &.opt-active {
+      .option-buttons-button-text {
+        color: #007bff;
+        border-color: #007bff;
+        opacity: 1;
+      }
+
+      &:hover {
+        background-color: #cdbde5;
+      }
     }
 
     &-text {

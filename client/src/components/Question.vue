@@ -84,8 +84,10 @@ export default {
 
   &-next {
     display: flex;
-    justify-content: space-between;
     margin: 1em 0;
+    justify-content: space-between;
+    align-items: stretch;
+
     @media only screen and (max-width: 700px) {
       display: block;
     }
