@@ -1,3 +1,6 @@
+.clasp.json
 node_modules/
 deploy/
-.clasp.json
+data/*
+!data/.gitkeep
+!data/peopleimages.example.json

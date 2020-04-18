@@ -67,7 +67,7 @@
       </b-alert>
       <h2>Let's chat!</h2>
       <p>If you've seen a great factoid, or funny joke, you might want to connect to your peers, and chat, laugh, and enjoy one another's wittiness.</p>
-      <p>Here are two places to start a conversation:</p>
+      <p>Here are two places to join a conversation:</p>
       <div class="chat">
         <ChatButtons />
         <b-alert show variant="warning">

@@ -16,6 +16,7 @@ While this code is meant to run on a Google App Script that's connected to a spr
 
 - Clone the repo
 - Run `npm install`
+- Rename `data/peopleimages.example.json` to `data/peopleimages.json` (Optionally: Include actual real data in that JSON file.)
 - Run `npm run local` to load the system locally based on mock data.
 
 ### To deploy:

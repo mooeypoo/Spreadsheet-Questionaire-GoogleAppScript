@@ -3,14 +3,21 @@
     <h1 class="question-title">{{ current.question }}</h1>
     <h2 class="question-text">{{ current.text }}</h2>
     <div class="question-options">
-      <b-button
+      <QuestionOptionButtons
+        :options="current.options"
+        :isAnswered="isAnswered"
+        :chosen="current.status.chosen"
+        :solution="current.solution"
+        v-on:answered="setAnswer"
+      />
+      <!-- <b-button
         :variant="getButtonVariant(opt)"
         v-for="opt in current.options"
         :key="opt"
         :disabled="isAnswered"
         v-on:click="setAnswer(opt)"
         class="question-button"
-      >{{ opt }}</b-button>
+      >{{ opt }}</b-button>-->
     </div>
     <div v-if="isAnswered" class="question-next">
       <b-alert class="question-next-alert" show v-if="current.status.correct" variant="success">
@@ -31,8 +38,10 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
+import QuestionOptionButtons from "./QuestionOptionButtons";
 export default {
   name: "Question",
+  components: { QuestionOptionButtons },
   computed: {
     ...mapGetters("quiz", {
       current: "currentQuestion",
@@ -46,21 +55,6 @@ export default {
     },
     goNextQuestion: function() {
       this.$store.dispatch("quiz/goToNextQuestion");
-    },
-    getButtonVariant: function(butName) {
-      if (this.current.status.chosen && this.current.solution === butName) {
-        // Correct answer
-        return "success";
-      } else if (
-        this.current.status.chosen === butName &&
-        this.current.solution !== butName
-      ) {
-        // Chosen but is not the correct answer
-        return "outline-danger";
-      } else {
-        // Not chosen, not the solution
-        return "outline-primary";
-      }
     }
   }
 };
@@ -101,36 +95,6 @@ export default {
 
     &-button {
       font-size: 1.5em;
-    }
-  }
-  &-options {
-    width: 100%;
-    display: flex;
-    margin-top: 1em;
-    justify-content: space-between;
-    align-content: space-between;
-    flex-wrap: wrap;
-
-    .question-button {
-      font-size: 1.5em;
-      @media only screen and (max-width: 710px) {
-        font-size: 1em;
-      }
-    }
-
-    @media only screen and (max-width: 500px) {
-      display: block;
-      text-align: center;
-    }
-  }
-
-  &-button {
-    margin: 0 1em 1em;
-    &-correct {
-      border-width: 4px;
-    }
-    &-chosen {
-      background-color: #ccc;
     }
   }
 }

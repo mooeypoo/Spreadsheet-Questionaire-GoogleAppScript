@@ -1,0 +1,10 @@
+{
+  "name": {
+    "email": "foo@bar.com",
+    "img": {
+      "src": "http://example.com/image.png",
+      "width": 400,
+      "height": 500
+    }
+  }
+}
