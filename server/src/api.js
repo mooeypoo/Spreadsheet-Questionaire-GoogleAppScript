@@ -6,6 +6,7 @@ function doGet() {
     .evaluate()
     .setSandboxMode(HtmlService.SandboxMode.IFRAME);
   output.addMetaTag('viewport', 'width=device-width, initial-scale=1');
+  output.setTitle('Wikimedia Foundation Distant Socializing App');
   return output;
 }
 

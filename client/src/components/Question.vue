@@ -2,6 +2,22 @@
   <div class="question">
     <h1 class="question-title">{{ current.question }}</h1>
     <h2 class="question-text">{{ current.text }}</h2>
+    <div v-if="isAnswered" class="question-next">
+      <b-alert class="question-next-alert" show v-if="current.status.correct" variant="success">
+        Correct!
+        <br />
+        <strong>{{ current.solution }}</strong>
+      </b-alert>
+      <b-alert class="question-next-alert" show v-if="!current.status.correct" variant="danger">
+        Not quite!
+        <br />
+        <strong>{{ current.solution }}</strong>
+      </b-alert>
+      <b-button variant="warning" class="question-next-button btn-lg" v-on:click="goNextQuestion">
+        Give me another!
+        <b-icon-arrow-right></b-icon-arrow-right>
+      </b-button>
+    </div>
     <div class="question-options">
       <QuestionOptionButtons
         :options="current.options"
@@ -10,20 +26,6 @@
         :solution="current.solution"
         v-on:answered="setAnswer"
       />
-    </div>
-    <div v-if="isAnswered" class="question-next">
-      <b-alert class="question-next-alert" show v-if="current.status.correct" variant="success">
-        Correct!
-        <strong>{{ current.solution }}</strong>
-      </b-alert>
-      <b-alert class="question-next-alert" show v-if="!current.status.correct" variant="danger">
-        Not quite!
-        <strong>{{ current.solution }}</strong>
-      </b-alert>
-      <b-button variant="danger" class="question-next-button btn-lg" v-on:click="goNextQuestion">
-        Give me another!
-        <b-icon-arrow-right></b-icon-arrow-right>
-      </b-button>
     </div>
   </div>
 </template>
@@ -81,12 +83,23 @@ export default {
   }
 
   &-next {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+    @media only screen and (max-width: 700px) {
+      display: block;
+    }
     &-alert {
+      flex-grow: 1;
       font-size: 0.9em;
     }
 
     &-button {
+      margin-left: 2em;
       font-size: 1.5em;
+      @media only screen and (max-width: 500px) {
+        margin-left: 0;
+      }
     }
   }
 }

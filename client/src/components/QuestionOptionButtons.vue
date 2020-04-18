@@ -1,16 +1,19 @@
 <template>
   <div class="option-buttons">
-    <div class="option-buttons-button" v-for="opt in options" :key="opt">
-      <div class="option-buttons-button-image">
-        <img v-if="getImgSrc(opt)" :src="getImgSrc(opt)" v-on:click="setAnswer(opt)" />
-      </div>
-      <b-button
+    <div
+      class="option-buttons-button"
+      :class="getButtonClass(opt)"
+      v-for="opt in options"
+      :key="opt"
+      v-on:click="setAnswer(opt)"
+    >
+      <div class="option-buttons-button-image" v-if="getImgStyle(opt)" :style="getImgStyle(opt)"></div>
+      <div class="option-buttons-button-text">{{opt}}</div>
+      <!-- <b-button
         squared
         class="option-buttons-button-clickable"
         :variant="getButtonVariant(opt)"
-        :disabled="isAnswered"
-        v-on:click="setAnswer(opt)"
-      >{{opt}}</b-button>
+      >{{opt}}</b-button>-->
     </div>
   </div>
 </template>
@@ -21,15 +24,22 @@ export default {
   name: "QuestionOptionButtons",
   props: ["options", "isAnswered", "chosen", "solution"],
   methods: {
-    getImgSrc(opt) {
-      return (
-        (peopleimages[opt] &&
-          peopleimages[opt].img &&
-          peopleimages[opt].img.src) ||
-        (peopleimages.default &&
-          peopleimages.default.img &&
-          peopleimages.default.img.src)
-      );
+    getImgStyle(opt) {
+      const imgSrc = peopleimages[opt] || peopleimages.default;
+      return `background-image: url('${imgSrc}');`;
+    },
+    getButtonClass: function(butName) {
+      if (!this.chosen) {
+        return "opt-active";
+      }
+
+      if (this.solution === butName) {
+        // Correct answer
+        return "opt-correct";
+      } else if (this.chosen === butName && this.solution !== butName) {
+        // Chosen but is not the correct answer
+        return "opt-incorrect";
+      }
     },
     getButtonVariant: function(butName) {
       if (this.chosen && this.solution === butName) {
@@ -44,7 +54,9 @@ export default {
       }
     },
     setAnswer: function(answer) {
-      this.$emit("answered", answer);
+      if (!this.chosen) {
+        this.$emit("answered", answer);
+      }
     }
   }
 };
@@ -62,31 +74,63 @@ export default {
   &-button {
     display: flex;
     flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    border-radius: 5px;
     margin: 1em;
+    width: 150px + 20px;
+
     @media only screen and (max-width: 800px) {
       margin: 0.2em auto;
+      width: 120px + 20px;
     }
 
-    &-clickable {
+    @media only screen and (max-width: 500px) {
+      margin: 0.2em;
+      width: 100px + 20px;
+    }
+
+    &.opt-correct .option-buttons-button-text {
+      background-color: #8acb99;
+      border: 2px solid #8acb99;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    &.opt-incorrect .option-buttons-button-text {
+      border: 2px dashed #cccccc;
+      border-radius: 10px;
+    }
+
+    &.opt-active:hover {
+      background-color: #cdbde5;
+    }
+
+    &-text {
+      padding: 0.5em 0;
       @media only screen and (max-width: 500px) {
         font-size: 0.8em;
+        padding: 0.1em;
+        border: 0;
       }
     }
 
     &-image {
-      max-width: 200px;
-      max-height: 150px;
-      overflow: hidden;
+      margin: 1em auto 0;
+      height: 150px;
+      width: 150px;
+      border-radius: 5px;
+      background: #d8d8d8;
+      background-position: center center;
+      background-size: cover;
       @media only screen and (max-width: 800px) {
-        max-width: 120px;
-        max-height: 100px;
+        margin: 0.5em auto 0;
+        width: 120px;
+        height: 120px;
       }
-
-      img {
-        width: 200px;
-        @media only screen and (max-width: 800px) {
-          width: 120px;
-        }
+      @media only screen and (max-width: 500px) {
+        width: 100px;
+        height: 100px;
       }
     }
   }

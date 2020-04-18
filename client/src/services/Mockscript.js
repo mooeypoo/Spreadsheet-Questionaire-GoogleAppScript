@@ -11,7 +11,7 @@ const fakeRows = [
     'joke1',
     'animal1',
     'videocall1',
-    'Person 1',
+    'Person 1 WithLongLastName',
   ],
   [
     // '113234',
