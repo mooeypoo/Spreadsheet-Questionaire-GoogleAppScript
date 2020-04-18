@@ -10,14 +10,6 @@
         :solution="current.solution"
         v-on:answered="setAnswer"
       />
-      <!-- <b-button
-        :variant="getButtonVariant(opt)"
-        v-for="opt in current.options"
-        :key="opt"
-        :disabled="isAnswered"
-        v-on:click="setAnswer(opt)"
-        class="question-button"
-      >{{ opt }}</b-button>-->
     </div>
     <div v-if="isAnswered" class="question-next">
       <b-alert class="question-next-alert" show v-if="current.status.correct" variant="success">
@@ -69,7 +61,7 @@ export default {
   text-align: center;
   background-color: $light-box-bg;
   @media only screen and (max-width: 500px) {
-    padding: 1em 1.5em;
+    padding: 0.5em;
   }
 
   h1 {

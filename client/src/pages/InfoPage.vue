@@ -101,7 +101,7 @@
           <span class="emphasis">Design guidance:</span> Jess Klein
         </li>
         <li>
-          <span class="emphasis">Testing and feature wrangling:</span> Greg Varnum, Ilana Fried.
+          <span class="emphasis">Testing and feature wrangling:</span> Greg Varnum, Ilana Fried, Niharika Kohli
         </li>
       </ul>
       <a href="https://icons8.com/icon/d74IkjBF0-ns/slack">Chat and Slack icons by Icons8</a>

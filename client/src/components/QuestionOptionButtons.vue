@@ -2,10 +2,11 @@
   <div class="option-buttons">
     <div class="option-buttons-button" v-for="opt in options" :key="opt">
       <div class="option-buttons-button-image">
-        <img :src="getImgSrc(opt)" />
+        <img v-if="getImgSrc(opt)" :src="getImgSrc(opt)" v-on:click="setAnswer(opt)" />
       </div>
       <b-button
         squared
+        class="option-buttons-button-clickable"
         :variant="getButtonVariant(opt)"
         :disabled="isAnswered"
         v-on:click="setAnswer(opt)"
@@ -15,14 +16,19 @@
 </template>
 
 <script>
-import peopleimages from "../../../data/testpeopleimages.json";
+import peopleimages from "../../../data/peopleimages.json";
 export default {
   name: "QuestionOptionButtons",
   props: ["options", "isAnswered", "chosen", "solution"],
   methods: {
     getImgSrc(opt) {
       return (
-        peopleimages[opt] && peopleimages[opt].img && peopleimages[opt].img.src
+        (peopleimages[opt] &&
+          peopleimages[opt].img &&
+          peopleimages[opt].img.src) ||
+        (peopleimages.default &&
+          peopleimages.default.img &&
+          peopleimages.default.img.src)
       );
     },
     getButtonVariant: function(butName) {
@@ -57,22 +63,28 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 1em;
-    @media only screen and (max-width: 500px) {
-      margin: 0.2em;
+    @media only screen and (max-width: 800px) {
+      margin: 0.2em auto;
+    }
+
+    &-clickable {
+      @media only screen and (max-width: 500px) {
+        font-size: 0.8em;
+      }
     }
 
     &-image {
       max-width: 200px;
       max-height: 150px;
       overflow: hidden;
-      @media only screen and (max-width: 500px) {
+      @media only screen and (max-width: 800px) {
         max-width: 120px;
         max-height: 100px;
       }
 
       img {
         width: 200px;
-        @media only screen and (max-width: 500px) {
+        @media only screen and (max-width: 800px) {
           width: 120px;
         }
       }
