@@ -10,8 +10,8 @@ class QuizBuilder {
    *
    * @param {String[][]} rows Array of rows, comprised of array of column values
    * @param {Object} config Configuration object.
-   * @param {Number} num_options Number of options to provide with each question
-   * @param {Object} structure Definition for the spreadsheet column structure
+   * @param {Number} [config.num_options=6] Number of options to provide with each question
+   * @param {Object} [config.structure={}] Definition for the spreadsheet column structure
    */
   constructor(rows, config = {}) {
     this.numOptions = config.num_options || 6;

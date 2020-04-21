@@ -22,6 +22,7 @@ export default {
   name: "AnswerDisplay",
   props: ["data"],
   computed: {
+    /** @return {boolean} */
     isCorrect: function() {
       return this.data.status.correct;
     },
