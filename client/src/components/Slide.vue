@@ -14,9 +14,12 @@ export default {
   name: "Slide",
   props: ["data", "small", "emoji"],
   computed: {
+    /** @return {string} */
     sizeClass: function() {
       return this.small !== undefined ? "slide-small" : "";
     },
+
+    /** @return {string} */
     emojiIcon: function() {
       return this.emoji !== undefined ? this.emoji : "";
     }

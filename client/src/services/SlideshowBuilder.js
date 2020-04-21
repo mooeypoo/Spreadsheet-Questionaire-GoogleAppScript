@@ -9,7 +9,8 @@ class SlideshowBuilder {
    * @param {String[][]} rows Array of rows, comprised of array of column values
    * @param {String} colname The name of the column that is used to create the slideshow items
    * @param {Object} config Configuration object
-   * @param {Boolean} [config.shuffle=true] Shuffle the slideshow results.
+   * @param {Boolean} [config.shuffled=true] Shuffle the slideshow results.
+   * @param {Object} [config.structure={}] Definition for the spreadsheet column structure
    *  If false, the order will be deterministic, based on the order of the
    *  rows in the spreadsheet.
    */

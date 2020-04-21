@@ -13,6 +13,7 @@ export default {
   name: "JokesList",
   components: { Slide },
   computed: {
+    /** @return {{content: string, name: string}[]} */
     seenJokes: function() {
       return this.$store.getters["slideshow/getSeenSlides"]("jokes");
     }
